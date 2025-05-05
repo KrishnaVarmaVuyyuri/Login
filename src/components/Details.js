@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const Details = () => {
+  const navigate = useNavigate()
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -11,7 +12,7 @@ const Details = () => {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <><div className="container mt-5">
       <div className="card shadow">
         <div className="card-header text-center bg-info text-white">
           <h2>User Details</h2>
@@ -31,7 +32,17 @@ const Details = () => {
           </table>
         </div>
       </div>
+      
     </div>
+    <div className="d-flex justify-content-center ">
+      <button onClick={(e)=>{
+          e.preventDefault();
+          navigate('/');
+      }} className="btn btn-secondary mt-5">Logout</button>
+    </div>
+    
+    </>
+    
   );
 };
 
